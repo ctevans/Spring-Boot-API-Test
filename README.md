@@ -6,7 +6,7 @@ the API Endpoints with Request Bodies with missing information. This error resul
 returned for all of the unit tests, which is an unexpected result and can be verified to be incorrect
 using Postman on the actual running codebase.
 
-Unit tests however are still provided in full to demonstrate code awareness.
+Unit tests however are still provided in full to demonstrate code awareness and were written as they were intended.
 
 # Why this issue remains
 
