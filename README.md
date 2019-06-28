@@ -4,7 +4,7 @@
 Unfortunately there is a known issue with the unit tests attempting to test validation on 
 the API Endpoints with Request Bodies with missing information. This error results in "200OK" being
 returned for all of the unit tests, which is an unexpected result and can be verified to be incorrect
-using Postman.
+using Postman on the actual running codebase.
 
 Unit tests however are still provided in full to demonstrate code awareness.
 
