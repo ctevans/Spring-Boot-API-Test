@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -32,7 +31,7 @@ public class PaymentAPITests {
 
     //Tests for payments/validate
     @Test
-    public void givenNoBindingResults_whenPostToCreateNewUser_returnOKStatusAndNewUserInformation() throws Exception {
+    public void givenFullPaymentInfoNoIssues_whenPostToCreateNewUser_returnOKStatusAndNewUserInformation() throws Exception {
         PaymentInformationDTO paymentInformationDTO = new PaymentInformationDTO();
         paymentInformationDTO.setCreditCardNumber(5555555555554444L);
         paymentInformationDTO.setCvv(123);
@@ -47,16 +46,14 @@ public class PaymentAPITests {
                 .contentType(MediaType.APPLICATION_JSON);
 
         mockMvc.perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(
+                        "Valid Payment Information Provided"));
     }
 
     @Test
     public void givenNoPaymentInfoFields_whenPutToPaymentValidate_returnErrorStatusAndMessage() throws Exception {
         PaymentInformationDTO paymentInformationDTO2 = new PaymentInformationDTO();
-
-        System.out.println(paymentInformationDTO2.getCreditCardNumber());
-        System.out.println(paymentInformationDTO2.getCvv());
-        System.out.println("wtf?");
 
         RequestBuilder requestBuilder2 = MockMvcRequestBuilders
                 .post("/payments/validate")

@@ -1,18 +1,20 @@
 package com.codingtest.demo.dtos;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 /**
  * Data Transfer Object for receiving the incoming User objects through the UserController.
  */
 public class UserDTO {
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Name is mandatory.")
     private String name;
 
-    @NotBlank(message = "Email is mandatory")
+    @NotBlank(message = "Email is mandatory.")
+    @Pattern(regexp = ".+@.+\\.[a-z]+", message = "Invalid email address provided.")
     private String email;
 
-    @NotBlank(message = "Address is mandatory")
+    @NotBlank(message = "Address is mandatory.")
     private String address;
 
     //<editor-fold desc="Getters/Setters">

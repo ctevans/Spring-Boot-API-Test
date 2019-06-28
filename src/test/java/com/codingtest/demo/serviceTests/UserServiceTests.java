@@ -30,7 +30,6 @@ public class UserServiceTests {
     @MockBean
     APIUtils apiUtils;
     private User mockValidUser = new User();
-    private UserService userServiceImpl = new UserServiceImpl(userRepository);
 
     @Before
     public void setup() {

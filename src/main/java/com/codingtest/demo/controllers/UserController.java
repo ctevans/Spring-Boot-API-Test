@@ -38,7 +38,7 @@ public class UserController {
         }
 
         try {
-            return ResponseEntity.status(200).body(userService.createNewUser(userDTO));
+            return ResponseEntity.status(200).body("New User Created with ID: " + userService.createNewUser(userDTO).getId());
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex);
         }
