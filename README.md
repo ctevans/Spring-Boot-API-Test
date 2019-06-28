@@ -15,3 +15,6 @@ I could utilize effectively to solve this problem in the 24 hour time period set
 I couldn't find any resources to help me tackle the problem in time :(
 
 Source: https://meta.stackoverflow.com/questions/386581/cant-post-a-new-question-using-guided-mode
+
+# Database used.
+I just used a simple MySQL server on my local machine for the purposes of this assignment.
